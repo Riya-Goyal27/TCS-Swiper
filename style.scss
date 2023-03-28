@@ -1,0 +1,283 @@
+@import url(//db.onlinewebfonts.com/c/225646b777438f81ec8400ff378afe2d?family=Houschka+Pro+Medium);
+
+$color1:#e41165;
+$color2:#212529;
+$color3:#5e6162;
+$color4:#f4f3f9;
+$color5: #fff;
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Houschka Pro Medium";
+    color: $color2;
+    line-height: 1.5;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    &__btn{
+        position: absolute;
+        z-index: 50;
+        top: 0;
+        right: 0;
+        &--next, &--prev{
+            font-size: 25px;
+            padding-right: 10px;
+            cursor: pointer;
+        }
+        &--prev{
+            margin-right: 20px;
+        }
+    }
+    &-pagination{
+        display: none;
+    }
+  }
+
+.disabled{
+    opacity: 0.25;
+}
+
+  .swiper-slide img {
+    width: 100%;
+  }
+
+  .container{
+    padding: 2rem 0;
+
+    &__sub{
+        padding: 0 3.5%;
+    }
+
+    .heading{
+        &__text{
+            font-size: 2rem;
+            line-height: 40px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+    }
+
+    .title{
+        border-left: 0.4rem solid $color1;
+        padding: 0.2rem 0;
+        padding-left: 2rem;
+        margin-bottom: 2.5rem;
+        letter-spacing: 0.5px;
+        font-size: 1.125rem;
+        cursor: pointer;
+        &__slidenum{
+            margin-bottom: 1rem;
+            font-weight: 600;
+            &--num{
+                color: $color1;
+            }
+
+            &--total{
+                color: $color3;
+            }
+        }
+
+        &__text{
+            font-size: 1.5rem;
+        }
+    }
+  }
+
+.content{
+    background-color: $color4;
+    letter-spacing: 0.7px;
+    &__sub{
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 0 15px;
+
+        &--text{
+            padding-top: 1.25rem;
+        }
+        &--image{
+            object-position: 0 0;
+            // max-height: 580px;
+            object-fit: cover;
+        }
+    }
+
+    &__title{
+        font-size: 2rem;
+        line-height: 2.8rem;
+        margin-bottom: 1rem;
+    }
+
+    &__desc{
+        font-size: 1rem;
+        line-height: 2.7rem;
+        margin-bottom: 1rem;
+    }
+
+    &__btn{
+        padding-top: 2.5rem;
+        padding-bottom: 3rem;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        
+        &--text{
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        &--icon{
+            margin-left: 1rem;
+            width: 40px;
+            height: 40px;
+            background-color: $color1;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        &--next{
+            color: $color5;
+            font-size: 20px;
+            
+        }
+        &--icon:hover &--next{
+            animation: nextbtnanimation 0.4s ease-in;
+        }
+    }
+}
+
+@keyframes nextbtnanimation {
+    0%{
+        transform: translateX(-40px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@media(min-width: 600px){
+    .container{
+        .heading{
+            &__text{
+                font-size: 2.25rem;
+            }
+        }
+    
+        .title{
+            font-size: 1.2rem;
+            &__text{
+                font-size: 1.6rem;
+            }
+        }
+      }
+    
+    .content{
+        &__sub{
+            max-width: 1000px;
+            padding: 0 30px;
+        }
+        &__title{
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
+    
+        &__desc{
+            font-size: 1.2rem;
+        }
+    
+        &__btn{
+            &--text{
+                font-size: 1.4rem;
+            }
+        }
+    }
+}
+
+@media(min-width: 1199px){
+    .title{
+        display: none;
+    }
+    .slidercontainer{
+        height: 80vh;
+
+    }
+    .content{
+        &__sub{
+            padding: 0;
+
+            &--image{
+                height: 74vh;
+            }
+            &--text{
+                padding: 1.5rem 2.5rem;
+            }
+        }
+    }
+    .swiper{
+        &-slide{
+            height: auto !important;
+            margin-bottom: 0 !important;
+        }
+        &-wrapper{
+            width: 70%;
+            // overflow: hidden;
+        }
+        &__btn{
+            display: none;
+        }
+        &__pag{
+            width: 30%;
+            position: relative;
+        }
+        &-pagination{
+            display: block;
+            position: absolute;
+            left: 2%;
+        }
+        display: flex;        
+    }
+    .swiper-pagination-bullet {
+        height: 100px;
+        min-width:100%;
+        text-align: left;
+        font-size: 1.2rem;
+        opacity: 1;
+        background: $color5;
+        border-radius: 0%;
+      }
+  
+      .swiper-pagination-bullet-active {
+        border-left: 5px solid $color1;
+        padding-left: 30px;
+      }
+      .swiper-pagination-bullet-active .nav__list--num{
+        color: $color1;
+      }
+      .swiper-pagination-bullet-active .nav__list--text{
+        color: $color2;
+      }
+    
+      .nav__list{
+        
+        width: 23%;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        &--num{
+            font-weight: 600;
+            padding-bottom: 10px;
+        }
+        &--text{
+            color: $color3;
+        }
+      }
+}
+
